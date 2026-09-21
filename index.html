@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 02 - Music</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 상단 헤더 -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">▶</span>
+      <span class="logo-text">Music</span>
+    </div>
+    <div class="search">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="노래, 앨범, 아티스트 검색">
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- 카테고리 칩 -->
+    <div class="chips">
+      <button class="chip active">전체</button>
+      <button class="chip">운동</button>
+      <button class="chip">집중</button>
+      <button class="chip">기분 전환</button>
+      <button class="chip">출퇴근</button>
+    </div>
+
+    <!-- 빠른 선곡 (그리드) -->
+    <section class="section">
+      <h2 class="section-title">빠른 선곡</h2>
+      <div class="card-grid">
+
+        <a class="card" data-search="LOVE ATTACK 리센느 RESCENE" href="https://www.youtube.com/results?search_query=노래방+LOVE+ATTACK+리센느" target="_blank" rel="noopener noreferrer">
+          <img src="https://picsum.photos/seed/love-attack/300/300" alt="LOVE ATTACK 앨범 이미지">
+          <div class="card-title">LOVE ATTACK</div>
+          <div class="card-sub">리센느 (RESCENE)</div>
+        </a>
+
+        <a class="card" data-search="갑자기 아이오아이 I.O.I" href="https://www.youtube.com/results?search_query=노래방+갑자기+아이오아이" target="_blank" rel="noopener noreferrer">
+          <img src="https://picsum.photos/seed/suddenly/300/300" alt="갑자기 앨범 이미지">
+          <div class="card-title">갑자기</div>
+          <div class="card-sub">아이오아이 (I.O.I)</div>
+        </a>
+
+        <a class="card" data-search="BiiiG 빅뱅 BIGBANG" href="https://www.youtube.com/results?search_query=노래방+BiiiG+빅뱅" target="_blank" rel="noopener noreferrer">
+          <img src="https://picsum.photos/seed/biiig/300/300" alt="BiiiG 앨범 이미지">
+          <div class="card-title">BiiiG</div>
+          <div class="card-sub">빅뱅 (BIGBANG)</div>
+        </a>
+
+        <a class="card" data-search="인기곡 모음 플레이리스트" href="https://www.youtube.com/results?search_query=노래방+인기곡" target="_blank" rel="noopener noreferrer">
+          <img src="https://picsum.photos/seed/popular/300/300" alt="인기곡 앨범 이미지">
+          <div class="card-title">인기곡 모음</div>
+          <div class="card-sub">플레이리스트</div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- 인기 차트 (리스트) -->
+    <section class="section">
+      <h2 class="section-title">인기 차트</h2>
+      <ol class="track-list">
+
+        <li class="track" data-search="LOVE ATTACK 리센느 RESCENE">
+          <a href="https://www.youtube.com/results?search_query=노래방+LOVE+ATTACK+리센느" target="_blank" rel="noopener noreferrer">
+            <span class="track-rank">1</span>
+            <img class="track-img" src="https://picsum.photos/seed/love-attack/100/100" alt="LOVE ATTACK 앨범 이미지">
+            <div class="track-info">
+              <div class="track-title">LOVE ATTACK</div>
+              <div class="track-artist">리센느 (RESCENE)</div>
+            </div>
+            <span class="track-time">2024.08</span>
+          </a>
+        </li>
+
+        <li class="track" data-search="갑자기 아이오아이 I.O.I">
+          <a href="https://www.youtube.com/results?search_query=노래방+갑자기+아이오아이" target="_blank" rel="noopener noreferrer">
+            <span class="track-rank">2</span>
+            <img class="track-img" src="https://picsum.photos/seed/suddenly/100/100" alt="갑자기 앨범 이미지">
+            <div class="track-info">
+              <div class="track-title">갑자기</div>
+              <div class="track-artist">아이오아이 (I.O.I)</div>
+            </div>
+            <span class="track-time">2026.05.19</span>
+          </a>
+        </li>
+
+        <li class="track" data-search="BiiiG 빅뱅 BIGBANG">
+          <a href="https://www.youtube.com/results?search_query=노래방+BiiiG+빅뱅" target="_blank" rel="noopener noreferrer">
+            <span class="track-rank">3</span>
+            <img class="track-img" src="https://picsum.photos/seed/biiig/100/100" alt="BiiiG 앨범 이미지">
+            <div class="track-info">
+              <div class="track-title">BiiiG</div>
+              <div class="track-artist">빅뱅 (BIGBANG)</div>
+            </div>
+            <span class="track-time">2026.08.19</span>
+          </a>
+        </li>
+
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- 하단 플레이어 바 -->
+  <footer class="player">
+    <div class="player-track">
+      <img src="https://picsum.photos/seed/love-attack/100/100" alt="현재 재생 중인 곡">
+      <div>
+        <div class="player-title">LOVE ATTACK</div>
+        <div class="player-artist">리센느 (RESCENE)</div>
+      </div>
+    </div>
+    <div class="player-controls">
+      <button aria-label="이전 곡">⏮</button>
+      <button class="play-btn" aria-label="재생">▶</button>
+      <button aria-label="다음 곡">⏭</button>
+    </div>
+    <div class="player-progress"><div class="player-progress-bar"></div></div>
+  </footer>
+
+  <!-- 검색 기능 -->
+  <script src="script.js"></script>
+
+</body>
+</html>

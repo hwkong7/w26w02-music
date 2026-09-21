@@ -1,0 +1,348 @@
+/* ===== 변수 & 기본 설정 ===== */
+:root {
+  --bg: #0f0f0f;
+  --surface: #212121;
+  --surface-hover: #2e2e2e;
+  --text: #ffffff;
+  --text-sub: #aaaaaa;
+  --accent: #ff0033;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* 검색으로 숨긴 요소가 확실히 사라지게 */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Dotum', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  padding-bottom: 100px; /* 하단 플레이어 바에 가려지지 않게 */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== 헤더 ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 24px;
+  background-color: rgba(15, 15, 15, 0.95);
+  border-bottom: 1px solid #272727;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.logo-icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  font-size: 12px;
+}
+
+.search {
+  flex: 1;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 24px;
+  background-color: var(--surface);
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.search input::placeholder {
+  color: var(--text-sub);
+}
+
+/* ===== 메인 레이아웃 ===== */
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+}
+
+/* ===== 카테고리 칩 ===== */
+.chips {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.chip {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chip:hover {
+  background-color: var(--surface-hover);
+}
+
+.chip.active {
+  background-color: var(--text);
+  color: #000;
+  font-weight: 600;
+}
+
+/* ===== 섹션 공통 ===== */
+.section {
+  margin-top: 36px;
+}
+
+.section-title {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* ===== 카드 그리드 (빠른 선곡) ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: block;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.2s;
+}
+
+.card:hover {
+  background-color: var(--surface);
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-title {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-sub {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+/* ===== 트랙 리스트 (인기 차트) ===== */
+.track a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.track a:hover {
+  background-color: var(--surface);
+}
+
+.track-rank {
+  width: 24px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-sub);
+}
+
+.track:nth-child(-n+3) .track-rank {
+  color: var(--text); /* 1~3위는 강조 */
+}
+
+.track-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.track-info {
+  flex: 1;
+  min-width: 0; /* 말줄임(ellipsis)이 flex 안에서 동작하려면 필요 */
+}
+
+.track-title {
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-artist {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+.track-time {
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+/* ===== 하단 플레이어 바 ===== */
+.player {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background-color: #212121;
+  border-top: 1px solid #333;
+}
+
+.player-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.player-track img {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.player-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.player-artist {
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  justify-content: center;
+}
+
+.player-controls button {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.player-controls .play-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--text);
+  color: #000;
+  font-size: 16px;
+}
+
+/* 재생 진행 바 (플레이어 맨 위에 얇게) */
+.player-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #444;
+}
+
+.player-progress-bar {
+  width: 35%;
+  height: 100%;
+  background-color: var(--accent);
+}
+
+/* ===== 반응형 (모바일) ===== */
+@media (max-width: 600px) {
+  .header {
+    padding: 10px 16px;
+    gap: 12px;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .main {
+    padding: 16px 16px 0;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .player-controls {
+    flex: 0;
+  }
+
+  .player-track div:last-child {
+    display: none; /* 좁은 화면에선 곡 이름 숨김 */
+  }
+}
